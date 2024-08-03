@@ -1,0 +1,11 @@
+pipeline
+{
+    agent any
+    stages
+    {
+        steps (echo 'scm checkout')
+        steps{ {git 'https://github.com/tusharmanep/MevanRepo.git'}}
+
+
+    }
+}
