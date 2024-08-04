@@ -9,7 +9,7 @@ pipeline
 stage('code compile')
  {steps {withMaven(globalMavenSettingsConfig: '', jdk: 'Java-Home', maven: 'Maven-Home', mavenSettingsConfig: '', traceability: true) 
  {
-    // some block
+    sh 'mvn compile'
 }
 }}
 stage('execute unit test framework')
