@@ -4,7 +4,7 @@ pipeline
     stages
     {
         stage('scm checkout')
- { steps {git 'https://github.com/tusharmanep/MevanRepo.git'}}
+ { steps {git branch: 'main', url: 'https://github.com/tusharmanep/MevanRepo.git'}}
 
 stage('code compile')
  {steps {withMaven(globalMavenSettingsConfig: '', jdk: 'Java-Home', maven: 'Maven-Home', mavenSettingsConfig: '', traceability: true) 
