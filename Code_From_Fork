@@ -21,6 +21,12 @@ stages
  {steps { withMaven(globalMavenSettingsConfig: '', jdk: 'Java-Home', maven: 'Maven-Home', mavenSettingsConfig: '', traceability: true)  {
     sh 'mvn package'
  } }}
+stage('deploye tomcat server'){
+                    steps{sshagent(credentials: ['deploy-to-tomcat'], ignoreMissing: true) {
+                 sh 'scp -o StrictHostkeyChecking=no webapp/target/webapp.war ec2-user@172.31.11.15:/usr/share/tomcat/webapps'
+                 }
+                }}
+}
 
 }
 }
