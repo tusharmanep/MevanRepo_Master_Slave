@@ -23,7 +23,7 @@ stages
  } }}
  stage('deploy to tomcat server-Dev-Automated')
   {steps { 
-	   sh 'scp -rp webapp/target/webapp.war ec2-user@172.31.46.83:/usr/share/tomcat/webapps/'
+	   sh 'scp -rp /var/lib/jenkins/workspace/Maven-Pipeline/webapp/target/webapp.war ec2-user@172.31.46.83:/usr/share/tomcat/webapps/'
 
 	  }} 
 }
