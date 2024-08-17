@@ -194,15 +194,7 @@ Now we can access the tomcat server from our browser:
 
 In order to access the Manager App found on the home page of the tomcat server we need to provide credentials. For this, we need to add some Users in the conf/tomcat-users.xml file.
 
-Update the user’s information in the tomcat-users.xml file goto tomcat home directory and Add the below users to conf/tomcat-users.xml file:
-
- <role rolename="manager-gui"/>
- <role rolename="manager-script"/>
- <role rolename="manager-jmx"/>
- <role rolename="manager-status"/>
- <user username="admin" password="admin" roles="manager-gui, manager-script, manager-jmx, manager-status"/>
- <user username="deployer" password="deployer" roles="manager-script"/>
- <user username="tomcat" password="s3cret" roles="manager-gui"/>
+manage jenkins -> credentials -> click on system under credentials -> global cred -> Add credentials
 
 
 Now we again to restart the services, to make things easier let’s create link files for tomcat startup.sh and shutdown.sh
@@ -299,10 +291,3 @@ In this blog, we learned how to build a Java web app using GitHub as our SCM, Je
 Resources Used:
 GitHub Link: https://github.com/mudasirhaji/Setup-CI-CD-with-Github-Jenkins-Maven-and-Tomcat-on-AWS.git
 
-Credits: Special thanks to Valaxy Technologies for their guidance.
-
-If this blog helped you in any way do let me know in the comments section and please follow and click the clap 👏 button below to show your support 😄
-
-Thanks
-
-Mudasir

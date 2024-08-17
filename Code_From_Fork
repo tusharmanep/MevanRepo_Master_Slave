@@ -4,23 +4,27 @@ agent any
 stages
 {
  stage('scm checkout')
- { steps { git branch: 'master', url: 'https://github.com/prakashk0301/mavenproject' }}
+{ steps {git branch: 'main', url: 'https://github.com/tusharmanep/MevanRepo.git'}}
 
 
  stage('code compile')
- {steps { withMaven(globalMavenSettingsConfig: '', jdk: 'JDK_HOME', maven: 'MAVEN_HOME', mavenSettingsConfig: '', traceability: true)  {
+ {steps { withMaven(globalMavenSettingsConfig: '', jdk: 'Java-Home', maven: 'Maven-Home', mavenSettingsConfig: '', traceability: true)  {
     sh 'mvn compile'
  } }}
 
   stage('execute unit test framework')
- {steps { withMaven(globalMavenSettingsConfig: '', jdk: 'JDK_HOME', maven: 'MAVEN_HOME', mavenSettingsConfig: '', traceability: true)  {
+ {steps { withMaven(globalMavenSettingsConfig: '', jdk: 'Java-Home', maven: 'Maven-Home', mavenSettingsConfig: '', traceability: true)  {
     sh 'mvn test'
  } }}
 
    stage('code build')
- {steps { withMaven(globalMavenSettingsConfig: '', jdk: 'JDK_HOME', maven: 'MAVEN_HOME', mavenSettingsConfig: '', traceability: true)  {
+ {steps { withMaven(globalMavenSettingsConfig: '', jdk: 'Java-Home', maven: 'Maven-Home', mavenSettingsConfig: '', traceability: true)  {
     sh 'mvn package'
  } }}
+ stage('deploy to tomcat server-Dev-Automated')
+  {steps { sshagent(['Deplaytomcat']) 
+   {
+    sh 'scp -o StrictHostKeyChecking=no webapp/target/webapp.war ec2-user@172.31.46.83:/usr/share/tomcat/webapps'
 
-}
-}
+   } }}
+}}
