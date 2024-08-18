@@ -4,7 +4,8 @@ agent any
 stages
 {
  stage('scm checkout')
-{ steps {git branch: 'main', url: 'https://github.com/tusharmanep/MevanRepo.git'}}
+{agent { label 'MAVEN' }
+steps {git branch: 'main', url: 'https://github.com/tusharmanep/MevanRepo.git'}}
 
 
  stage('code compile')
